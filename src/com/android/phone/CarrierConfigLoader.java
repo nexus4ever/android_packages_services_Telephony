@@ -328,11 +328,11 @@ public class CarrierConfigLoader extends ICarrierConfigLoader.Stub {
                     SharedPreferences sharedPrefs =
                             PreferenceManager.getDefaultSharedPreferences(mContext);
                     final String lastFingerprint = sharedPrefs.getString(KEY_FINGERPRINT, null);
-                    if (!Build.DATE.equals(lastFingerprint)) {
+                    if (!Build.FINGERPRINT.equals(lastFingerprint)) {
                         log("Build fingerprint changed. old: "
-                                + lastFingerprint + " new: " + Build.DATE);
+                                + lastFingerprint + " new: " + Build.FINGERPRINT);
                         clearCachedConfigForPackage(null);
-                        sharedPrefs.edit().putString(KEY_FINGERPRINT, Build.DATE).apply();
+                        sharedPrefs.edit().putString(KEY_FINGERPRINT, Build.FINGERPRINT).apply();
                     }
                     break;
             }
